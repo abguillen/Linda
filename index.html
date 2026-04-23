@@ -3,11 +3,84 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Foto</title>
+  <title>Feliz Sant Jordi</title>
   <style>
-    html, body { height: 100%; margin: 0; }
-    body { background: url("foto.jpeg") center / cover no-repeat; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    body {
+      background: url("foto.jpeg") center center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Capa oscura suave para que el texto se lea mejor */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 0;
+    }
+
+    .cartel {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 248, 240, 0.82);
+      border: 3px solid rgba(180, 30, 30, 0.9);
+      border-radius: 24px;
+      padding: 28px 48px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+      text-align: center;
+      animation: aparecer 1.5s ease-out, flotar 3s ease-in-out infinite 1.5s;
+      backdrop-filter: blur(4px);
+    }
+
+    .cartel h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 5rem);
+      color: #b11f1f;
+      text-shadow: 2px 2px 8px rgba(255,255,255,0.5);
+      letter-spacing: 1px;
+    }
+
+    .cartel p {
+      margin: 12px 0 0;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      color: #5a2a2a;
+    }
+
+    @keyframes aparecer {
+      0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes flotar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
   </style>
 </head>
-<body></body>
+<body>
+  <div class="cartel">
+    <h1>Feliz Sant Jordi</h1>
+    <p>🌹📖</p>
+  </div>
+</body>
 </html>
